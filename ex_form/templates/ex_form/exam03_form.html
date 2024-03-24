@@ -1,0 +1,37 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="전송"><br>
+</form>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <table>
+    {{ form }}
+    </table>
+    <input type="submit" value="전송"><br>
+</form>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }} <!--이렇게 하면 p태그로 만들어짐 -->
+    <input type="submit" value="전송"><br>
+</form>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <ul>
+    {{ form.as_ul }} <!--이렇게 하면 ul태그로 만들어짐 -->
+    </ul>
+    <input type="submit" value="전송"><br>
+</form>
+<hr>
+
+<!-- 직접 사용하고 싶을 때-->
+{{ form.errors }}
+<form method="post">
+    {% csrf_token %}
+    이름: {{ form.name }}{{form.name.errors}}
+    나이: {{ form.age }} {{form.age.errors}}
+    <input type="submit" value="전송"><br>
+</form>

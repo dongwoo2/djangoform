@@ -38,3 +38,20 @@ def exam02(request):
             'ex_form/exam02_form.html',
             {'form':form}     
         )
+    
+from .forms import PersonModelForm
+
+def exam03(request):
+    if request.method == 'POST':
+        form = PersonModelForm(request.POST)
+        if form.is_valid():
+            form.save
+            return HttpResponse('처리 완료')
+    else:
+        form = PersonModelForm()
+
+    return render(
+        request,
+        'ex_form/exam03_form.html',
+        {'form': form}
+    )

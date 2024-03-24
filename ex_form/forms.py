@@ -36,3 +36,10 @@ class PersonForm(forms.Form):
         if age > 150:
             raise forms.ValidationError('값이 범위를 벗어남')
         return age # 반드시 값을 반환해야함
+    
+from .models import Person
+
+class PersonModelForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = ['name', 'age']

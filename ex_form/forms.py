@@ -43,3 +43,24 @@ class PersonModelForm(forms.ModelForm):
     class Meta:
         model = Person
         fields = ['name', 'age']
+
+    # def clean_name(self):
+    #     print('name 유효성 검증')
+    #     name = self.cleaned_data['name']
+    #     if len(name) < 4:
+    #         raise forms.ValidationError('길이 오류')
+    #     return name
+    
+    # def clean_age(self):
+    #     print('age 유효성 검증')
+    #     age = self.cleaned_data['age']
+    #     if age > 150:
+    #         raise forms.ValidationError('나이 범위 오류')
+    #     return age
+    
+    # def clean(self): # full clean 
+    #     print('clean 호출')
+    #     print(self.cleaned_data['name'])
+    #     print(self.cleaned_data['age'])
+    #     return self.cleaned_data
+    

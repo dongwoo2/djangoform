@@ -55,3 +55,6 @@ def exam03(request):
         'ex_form/exam03_form.html',
         {'form': form}
     )
+    
+def index(request):
+    return render(request, 'ex_form/index.html')

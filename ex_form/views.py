@@ -58,3 +58,12 @@ def exam03(request):
     
 def index(request):
     return render(request, 'ex_form/index.html')
+
+from django.views.generic import View
+from django.shortcuts import redirect, reverse
+
+class MyView1(View):
+    
+    def get(self, request):
+        form = PersonModelForm()
+        return render(request, 'ex_form/exam04_form.html', {'form':form})

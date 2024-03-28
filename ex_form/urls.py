@@ -8,4 +8,7 @@ urlpatterns = [
     path('exam02/', views.exam02, name='exam02'),
     path('exam03/', views.exam03, name='exam03'),
     path('', views.index, name='index'),
+    
+    #클래스형 뷰 설정
+    path('exam04/', views.MyView1.as_view(), name='exam04'),
 ]

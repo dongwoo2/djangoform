@@ -73,3 +73,26 @@ class MyView1(View):
         if form.is_valid():
             form.save()
             return redirect(reverse('ex_form:index'))
+        
+        return render(request, 'ex_form/exam04_form.html', {'form':form})
+    
+    
+class MyView2(View):
+    form_class = PersonModelForm
+    initial = {
+        'name' : '이름',
+        'age' : 0
+    }
+    template_name = 'ex_form/exam04_form.html'
+    
+    def get(self, request):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form':form})
+    
+    def post(self, request):
+        form = PersonModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('ex_form:index'))
+        
+        return render(request, 'ex_form/exam04_form.html', {'form':form})

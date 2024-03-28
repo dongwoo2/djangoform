@@ -67,3 +67,9 @@ class MyView1(View):
     def get(self, request):
         form = PersonModelForm()
         return render(request, 'ex_form/exam04_form.html', {'form':form})
+    
+    def post(self, request):
+        form = PersonModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('ex_form:index'))

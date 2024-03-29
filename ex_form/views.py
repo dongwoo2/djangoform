@@ -95,4 +95,16 @@ class MyView2(View):
             form.save()
             return redirect(reverse('ex_form:index'))
         
-        return render(request, 'ex_form/exam04_form.html', {'form':form})
+        return render(request, self.template_name, {'form':form})
+    
+from django.views.generic import FormView # FormView는 폼까지만 보여줌 폼이 정상적인지까지만 확인해서 거기까지만 진행될 수 있게 함
+
+class MyView3(FormView):
+    form_class = PersonModelForm
+    template_name = 'ex_form/exam04_form.html'
+    success_url = '/ex/'
+    
+    def form_valid(self, form):
+        print('데이터가 유효하면')
+        m = Person(**form.cleaned_data)
+        m.save()

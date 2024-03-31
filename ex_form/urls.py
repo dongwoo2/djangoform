@@ -13,4 +13,6 @@ urlpatterns = [
     path('exam04/', views.MyView1.as_view(), name='exam04'),
     path('exam05/', views.MyView2.as_view(), name='exam05'),
     path('exam06/', views.MyView3.as_view(), name='exam06'),
+    path('exam07/', views.MyView4.as_view(), name='exam07'),
+    path('exam08/', views.MyView5.as_view(), name='exam08'),
 ]

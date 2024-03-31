@@ -110,3 +110,21 @@ class MyView3(FormView): # 0.formview를 상속해서 클래스형 뷰를 정의
         m.save()
         
         return super().form_valid(form) # 내가 원하는 기능을 다 만든 후 에는 부모가 갖고있는 동일한 함수를 매개변수를 그대로 전달해줘서 호출해주고 리턴해야한다
+    
+from django.views.generic import CreateView
+    
+class MyView4(CreateView): # get post 두 가지 요청을 둘 다 처리할 수 있게 설정함
+    model = Person
+    form_class = PersonModelForm
+    # template_name = 'ex_form/exam04_form.html'
+    # 지정하지 않으면 '앱이름/모델명_form.html' 를 알아서 찾음
+    # templates/ex_form/person_form.html
+    success_url = '/ex/'
+    
+from django.views.generic import DetailView
+
+class MyView5(DetailView): # 하나의 요소를 자세히 보자 디테일뷰~
+    # 지정해야 되는 건 이런 속성들
+    model = Person # 어떤 모델에서 값을 조회할 것인지
+    # template_name = '/ex_form/person_detail.html' # 조회 한 결과를 어떤 템플릿으로 보여줄것인지
+    # 지정안하면 위에 MyView4에 있는 템플릿처럼 알아서 지정됨

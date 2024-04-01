@@ -33,4 +33,4 @@ class Person(models.Model):
 
 
     def __str__(self):
-        return f'Person[name={self.name}, age={self.age}]'
+        return f'Person[id={self.id}, name={self.name}, age={self.age}]'

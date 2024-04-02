@@ -128,3 +128,9 @@ class MyView5(DetailView): # 하나의 요소를 자세히 보자 디테일뷰~
     model = Person # 어떤 모델에서 값을 조회할 것인지
     # template_name = '/ex_form/person_detail.html' # 조회 한 결과를 어떤 템플릿으로 보여줄것인지
     # 지정안하면 위에 MyView4에 있는 템플릿처럼 알아서 지정됨
+    
+from django.views.generic import ListView
+
+class MyView6(ListView):
+    model = Person
+    template_name = 'ex_form/person_list.html'
